@@ -19,10 +19,14 @@ nav {
     position: sticky;
 }
 
+nav ul {
+    padding-inline: 4rem;
+    display: flex;
+    gap: 2rem;
+}
+
 nav li {
-    display: inline;
     list-style-type: none;
-    margin-right: 20px;
 }
 
 nav a {
@@ -48,12 +52,15 @@ body {
 
 main {
     padding: 20px;
-    overflow: auto;
+    display: flex;
+    gap: 1.5rem;
 }
 
 #content {
-    float: left;
-    width: 75%;
+    flex: 5;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem 2rem;
 }
 
 .featured-image {
@@ -67,7 +74,6 @@ main {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 20px;
-    margin-top: 20px;
 }
 
 h2 {
@@ -87,9 +93,7 @@ h3 {
 }
 
 aside {
-    float: right;
-    width: 25%;
-    padding-left: 20px;
+    flex: 1;
 }
 
 .profile table {
@@ -105,11 +109,22 @@ footer {
 }
 
 /* Rule yang dituliskan dalam block @media dibawah akan diterapkan pada device yang memiliki ukuran dibawah 1000px */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
+    main {
+        flex-flow: column nowrap;
+    }
 
-    #content,
-    aside {
-        width: 100%;
-        padding: 0;
+    main aside {
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        justify-content: center;
+    }
+
+    main aside {
+        align-self: stretch;
     }
 }
